@@ -47,7 +47,7 @@ const BuyForm = ({ product }) => {
     `;
 
     try {
-      const response = await fetch("/.netlify/functions/sendMessage", {
+      const response = await fetch("https://sparkling-treacle-fe54b9.netlify.app/.netlify/functions/sendMessage", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
