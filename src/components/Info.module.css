@@ -1,0 +1,108 @@
+.box {
+  margin: 20px auto;
+  border-radius: 7px;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: rgb(252, 240, 223);
+  color: white;
+  margin: 20px auto;
+  background: linear-gradient(to bottom,  rgba(22, 197, 6, 0.75), #000000);
+}
+
+.boxVisible .col {
+  opacity: 0; 
+  transform: translateY(20px); 
+  animation: fadeInUp 0.8s ease forwards; 
+}
+
+.boxVisible .col:nth-child(1) {
+  animation-delay: 0.5s; 
+}
+
+.boxVisible .col:nth-child(2) {
+  animation-delay: 1s; 
+}
+
+.boxVisible .col:nth-child(3) {
+  animation-delay: 1.5s;
+}
+
+.boxVisible .col:nth-child(4) {
+  animation-delay: 2s; 
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.textTitle {
+  font-size: x-large;
+  font-weight: bold;
+  color: white;
+  line-height: normal;
+}
+
+.text1 {
+  font-size: large;
+  padding: 5px 20px;
+  line-height: normal;
+  font-weight: 600;
+}
+
+.text2 {
+  font-size: larger;
+  font-weight: 700;
+}
+
+.iconBox {
+  width: 80px;
+  height: 80px;
+  padding: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  transition: all 0.5s;
+  background-color: white;
+  border: 2px solid  rgba(22, 197, 6);;
+}
+
+.icon {
+  font-size: 50px;
+  color:  rgba(22, 197, 6);;
+  transition: all 0.5s;
+}
+
+.icon:hover,
+.icon:active {
+  transform: rotateY(180deg);
+  transition: transform 1.5s;
+}
+
+@media screen and (min-width: 992px) {
+  .textTitle {
+    font-size: 50px;
+  }
+  .icon {
+    font-size: 100px;
+  }
+  .iconBox {
+    width: 150px;
+    height: 150px;
+    padding: 25px;
+  }
+  .text1 {
+    font-size: x-large;
+    padding: 5px 30px;
+  }
+  .text2 {
+    font-size: x-large;
+  }
+}

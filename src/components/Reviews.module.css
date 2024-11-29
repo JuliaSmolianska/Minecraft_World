@@ -1,0 +1,53 @@
+.reviewsTitle {
+  font-size: xx-large;
+  font-weight: 500;
+  color: #882380;
+  font-family: Impact, fantasy;
+  text-shadow: -1px -1px 0 black, 1px -1px 3px black, -1px 1px 3px black,
+    1px 1px 6px black;
+}
+
+.reviewBox {
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 0;
+  margin: 10px;
+  height: 150px;
+  background-color: white;
+}
+
+@media screen and (min-width: 992px) {
+  .reviewsTitle {
+    font-size: 70px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.fadeOut {
+  animation: fadeOut 0.3s ease-out;
+}

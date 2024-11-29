@@ -1,0 +1,46 @@
+.bgFooter {
+  background: linear-gradient(to bottom, #882380, #000000);
+  padding: 5% 10% 1%;
+  color: white;
+  height: auto;
+}
+.icons {
+  font-size: 30px;
+}
+.iconContactsBox {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin-right: 20px;
+}
+.iconContacts {
+  color: black;
+}
+.iconContacts:hover,
+.iconContacts:active {
+  color: #882380;
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+.text {
+  margin-bottom: 0;
+  margin-left: 10px;
+  font-size:large;
+}
+
+@media screen and (min-width: 768px) {
+  .icons {
+    font-size: 50px;
+  }
+  .text {
+    margin-bottom: 0;
+    margin-left: 10px;
+    font-size: larger;
+  }
+}

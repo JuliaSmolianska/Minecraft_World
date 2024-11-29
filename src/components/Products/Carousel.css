@@ -1,0 +1,24 @@
+.carousel-indicators {
+  margin-bottom: 0;
+}
+.carousel-indicators [data-bs-target] {
+  background-color: rgba(20, 167, 62, 1);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  opacity: 0.8;
+}
+
+.carousel-indicators [data-bs-target]:hover,
+.carousel-indicators [data-bs-target]:focus {
+  background-color: rgba(20, 167, 62, 1);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.carousel-indicators .active {
+  background-color: #14a73e98;
+}
