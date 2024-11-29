@@ -29,13 +29,12 @@ const validationSchema = Yup.object().shape({
   ),
 });
 
-const BuyForm = ({ product }) => {
+const BuyForm = ({ product, orderModal }) => {
   const handleSubmit = async (values, { resetForm }) => {
     const { title, price } = product;
     const newOrder = { ...values, title, price };
     console.log(newOrder);
 
-   
     const message = `
       🛒 Нове замовлення:!
       📦 Продукт: ${title}
@@ -47,17 +46,20 @@ const BuyForm = ({ product }) => {
     `;
 
     try {
-      const response = await fetch("https://sparkling-treacle-fe54b9.netlify.app/.netlify/functions/sendMessage", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          chat_id: "5141047645", 
-          text: message,
-          parse_mode: "HTML", 
-        }),
-      });
+      const response = await fetch(
+        "https://sparkling-treacle-fe54b9.netlify.app/.netlify/functions/sendMessage",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            chat_id: "5141047645",
+            text: message,
+            parse_mode: "HTML",
+          }),
+        }
+      );
 
       const data = await response.json();
 
@@ -72,7 +74,7 @@ const BuyForm = ({ product }) => {
       console.error("Помилка мережі:", error);
       alert("Помилка з'єднання. Спробуйте пізніше.");
     }
-
+    orderModal(false);
     resetForm();
   };
 

@@ -10,11 +10,10 @@ import Modal from "../Modal/Modal";
 const Products = () => {
   //interval={null}
 
-  const [order, setOrder] = useState(false);
+  const [orderModal, setOrderModal] = useState(false);
   const [product, setProduct] = useState([]);
   const [carouselModal, setCarouselModal] = useState(false);
   const [activeImages, setActiveImages] = useState([]);
-
 
   const openCarouselModal = (images) => {
     setActiveImages(images);
@@ -23,7 +22,7 @@ const Products = () => {
 
   const makeOrder = (item) => {
     console.log(item);
-    setOrder(true);
+    setOrderModal(true);
     setProduct(item);
   };
 
@@ -82,9 +81,13 @@ const Products = () => {
           </Col>
         ))}
       </Row>
-      {order && (
-        <Modal show={order} onClose={() => setOrder(false)}  style={{ height: "auto" }}>
-          <BuyForm product={product} />
+      {orderModal && (
+        <Modal
+          show={orderModal}
+          onClose={() => setOrderModal(false)}
+          style={{ height: "auto" }}
+        >
+          <BuyForm product={product} orderModal={setOrderModal} />
         </Modal>
       )}
 
