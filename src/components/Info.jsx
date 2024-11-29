@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Col, Row, Image } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { GiCube } from "react-icons/gi";
 import { IoMagnet } from "react-icons/io5";
 import { FaBoxArchive } from "react-icons/fa6";
