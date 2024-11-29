@@ -1,8 +1,8 @@
-import axios from "axios";
+const axios = require("axios");
 
 exports.handler = async function (event) {
   if (event.httpMethod === "POST") {
-    const botToken = "AAEdKD9wuWm3jPzpVkam40AmOOtnm1tMnCU";
+    const botToken = "8193544106:AAEdKD9wuWm3jPzpVkam40AmOOtnm1tMnCU";
     const telegramApiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
     const { chat_id, text } = JSON.parse(event.body);

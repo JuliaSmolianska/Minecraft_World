@@ -35,26 +35,25 @@ const BuyForm = ({ product }) => {
     const newOrder = { ...values, title, price };
     console.log(newOrder);
 
-    // Формуємо повідомлення для Telegram
+   
     const message = `
-      🛒 <b>Нове замовлення</b>:
-      📦 <b>Продукт</b>: ${title}
-      💵 <b>Ціна</b>: ${price} грн.
-      👤 <b>Ім'я</b>: ${values.name}
-      📞 <b>Телефон</b>: ${values.phone}
-      📍 <b>Адреса</b>: ${values.address}
-      💬 <b>Коментар</b>: ${values.comment || "Немає"}
+      🛒 Нове замовлення:!
+      📦 Продукт: ${title}
+      💵 Ціна: ${price} грн.
+      👤 Ім'я: ${values.name}
+      📞 Телефон: ${values.phone}
+      📍 Адреса: ${values.address}
+      💬 Коментар: ${values.comment || "Немає"}
     `;
 
     try {
-      // Відправка POST-запиту до серверної функції Netlify
       const response = await fetch("/.netlify/functions/sendMessage", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          chat_id: "8193544106", 
+          chat_id: "5141047645", 
           text: message,
           parse_mode: "HTML", 
         }),
