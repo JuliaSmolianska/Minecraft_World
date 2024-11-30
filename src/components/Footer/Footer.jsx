@@ -8,6 +8,7 @@ import { MdOutlineMail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaViber } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   const dateYear = new Date().getFullYear();
@@ -29,7 +30,7 @@ const Footer = () => {
           </div>
         </Col>
         <Col xs={12} md={6}>
-          <div className="fs-3 text-md-start">Контакти</div>
+          <b className="fs-3 text-md-start">Контакти:</b>
           <div className="d-flex align-items-center justify-content-center justify-content-md-start">
             <FaPhoneAlt size={25} />
             <p className="ms-2 pt-2 fs-5 text-center text-md-start">
@@ -50,12 +51,15 @@ const Footer = () => {
               <div className={css.iconContactsBox}>
                 <FaTelegramPlane size={40} className={css.iconContacts} />
               </div>
+              <div className={css.iconContactsBox}>
+                <FaInstagram size={40} className={css.iconContacts} />
+              </div>
             </div>
           </div>
         </Col>
       </Row>
-      <div className="mt-3">
-        Інтернет магазин "Minecraft_World" &copy; {dateYear}
+      <div className="mt-3 fs-6">
+        Інтернет-магазин "Minecraft_World"&copy; {dateYear}
       </div>
     </Col>
   );

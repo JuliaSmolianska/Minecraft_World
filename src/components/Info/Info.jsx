@@ -33,7 +33,7 @@ const Info = () => {
   }, []);
 
   return (
-    <Col xs={11} lg={9} className={css.box} ref={boxRef}>
+    <Col xs={11} sm={9} md={8} lg={11} xl={10} className={css.box} ref={boxRef}>
       <p className={css.textTitle}>Якісно та екологічно</p>
       <p className={css.text1}>
         Наші кубики зроблені з дерева, з вбудованими магнітами всередині та

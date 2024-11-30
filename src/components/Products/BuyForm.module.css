@@ -9,6 +9,7 @@
 .label {
   display: flex;
   flex-direction: column;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
   text-align: left;
+  line-height: 18px;
 }

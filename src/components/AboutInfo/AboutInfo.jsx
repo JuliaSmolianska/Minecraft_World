@@ -30,7 +30,7 @@ const AboutInfo = () => {
   }, []);
 
   return (
-    <Col xs={12} lg={9} className={css.box}>
+    <Col xs={12} lg={10}  className={css.box}>
       <ul
         ref={textRef}
         className={`${css.infoText} ${isVisible ? css.listVisible : ""}`}

@@ -3,7 +3,7 @@ import { Col, Button } from "react-bootstrap";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "../Products/BuyForm.module.css";
-import style from "../Products/Product.module.css"
+import style from "../Products/Product.module.css";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -52,13 +52,11 @@ const ReviewForm = ({ reviewModal }) => {
         }
       );
 
-      const data = await response.json();
+      await response.json();
 
       if (response.ok) {
-        console.log("Повідомлення надіслано в Telegram", data);
-        alert("Ваше замовлення успішно надіслано!");
+        alert("Ваше відгук успішно надіслано!");
       } else {
-        console.error("Помилка при відправці повідомлення в Telegram", data);
         alert("Виникла помилка. Спробуйте пізніше.");
       }
     } catch (error) {
@@ -72,8 +70,8 @@ const ReviewForm = ({ reviewModal }) => {
   return (
     <Formik
       initialValues={{
-        name: "",
         phone: "",
+        name: "",
         review: "",
       }}
       validationSchema={validationSchema}
@@ -81,13 +79,15 @@ const ReviewForm = ({ reviewModal }) => {
     >
       <Col className="ps-1 pe-1">
         <Form className={`pb-1 px-4 ${css.form}`} autoComplete="off">
-          <label className={css.label} htmlFor="name">
-            Ваше ім'я та прізвище
-            <Field type="text" name="name" id="name" />
-            <ErrorMessage name="name" component="div" className="text-danger" />
-          </label>
+          <div className="text-center fs-5">
+            <b>
+              Відгук можна залишити лише після покупки в нашому
+              інтернет-магазині!
+            </b>
+          </div>
+          <br />
           <label className={css.label} htmlFor="phone">
-            Введіть ваш номер телефону
+            Введіть номер телефону, за яким оформлювалось замовлення
             <Field
               type="text"
               name="phone"
@@ -99,6 +99,11 @@ const ReviewForm = ({ reviewModal }) => {
               component="div"
               className="text-danger"
             />
+          </label>
+          <label className={css.label} htmlFor="name">
+            Ваше ім'я
+            <Field type="text" name="name" id="name" />
+            <ErrorMessage name="name" component="div" className="text-danger" />
           </label>
           <label className={css.label} htmlFor="review">
             Напишіть свій відгук

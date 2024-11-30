@@ -1,5 +1,5 @@
 .bgFooter {
-  background: linear-gradient(to bottom,  #2dbdb8, #08040f);
+  background: linear-gradient(to bottom, #2dbdb8, #08040f);
   padding: 5% 10% 1%;
   color: white;
   height: auto;
@@ -23,7 +23,7 @@
 }
 .iconContacts:hover,
 .iconContacts:active {
-  color: #882380;
+  color: #2dbdb8;
   transform: scale(1.1);
   transition: all 0.5s;
 }
@@ -31,7 +31,7 @@
 .text {
   margin-bottom: 0;
   margin-left: 10px;
-  font-size:large;
+  font-size: large;
 }
 
 @media screen and (min-width: 768px) {
@@ -42,5 +42,10 @@
     margin-bottom: 0;
     margin-left: 10px;
     font-size: larger;
+  }
+}
+@media screen and (max-width: 600px) {
+  .bgFooter {
+    padding: 5% 2% 1%;
   }
 }

@@ -29,26 +29,30 @@ const MainInfo = () => {
   }, []);
 
   return (
-    <Col xs={11} lg={9} className={css.infoBox}>
-      <h2
-        ref={titleRef}
-        className={`${css.infoTitle} ${isVisible ? css.infoTitleVisible : ""}`}
-      >
-        <span>Магнітний </span>
-        <span>конструктор</span>
-      </h2>
-      <Image
-        src="../images/mainkraft.png"
-        style={{ width: "50%", margin: "10px auto" }}
-      />
-      <Row>
-        <Col className={css.infoText} xs={11} md={6}>
-          Це ігровий набір, який дозволяє створювати різні 3D-моделі із блоків у
-          Minecraft-стилі, що дозволяє відтворювати сцени з гри або створювати
-          власні світи.
-        </Col>
-        <Image src="../../images/minecraft_img2.png" className={css.image} />
-      </Row>
+    <Col xs={12} className={css.infoBox}>
+      <Col xl={10} className="mx-auto">
+        <h2
+          ref={titleRef}
+          className={`${css.infoTitle} ${
+            isVisible ? css.infoTitleVisible : ""
+          }`}
+        >
+          <span>Магнітний </span>
+          <span>конструктор</span>
+        </h2>
+        <Image
+          src="../images/mainkraft.png"
+          style={{ width: "50%", margin: "10px auto" }}
+        />
+        <Row>
+          <Col className={css.infoText} xs={11} md={6}>
+            Це ігровий набір, який дозволяє створювати різні 3D-моделі із блоків
+            у Minecraft-стилі, що дозволяє відтворювати сцени з гри або
+            створювати власні світи.
+          </Col>
+          <Image src="../../images/minecraft_img2.png" className={css.image} />
+        </Row>
+      </Col>
     </Col>
   );
 };
