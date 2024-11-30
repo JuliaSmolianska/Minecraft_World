@@ -29,17 +29,21 @@ const Footer = () => {
           </div>
         </Col>
         <Col xs={12} md={6}>
+          <div className="fs-3 text-md-start">Контакти</div>
+          <div className="d-flex align-items-center justify-content-center justify-content-md-start">
+            <FaPhoneAlt size={25} />
+            <p className="ms-2 pt-2 fs-5 text-center text-md-start">
+              +38(068)-883-84-93
+            </p>
+          </div>
           <div className="d-flex align-items-center mb-3 justify-content-center justify-content-md-start">
             <div>
-              <MdOutlineMail size={40} />
+              <MdOutlineMail size={30} />
             </div>
             <p className={css.text}>minecraftworld_2024@ukr.net</p>
           </div>
           <div className="mt-4">
             <div className="d-flex justify-content-center justify-content-md-start">
-              <div className={css.iconContactsBox}>
-                <FaPhoneAlt size={35} className={css.iconContacts} />
-              </div>
               <div className={css.iconContactsBox}>
                 <FaViber size={40} className={css.iconContacts} />
               </div>
@@ -47,13 +51,12 @@ const Footer = () => {
                 <FaTelegramPlane size={40} className={css.iconContacts} />
               </div>
             </div>
-            <p className="mt-2 mb-4  fs-4 text-center text-md-start">
-              +38(068)-883-84-93
-            </p>
           </div>
         </Col>
       </Row>
-      <div className="mt-3">Всі права захищені &copy; {dateYear}</div>
+      <div className="mt-3">
+        Інтернет магазин "Minecraft_World" &copy; {dateYear}
+      </div>
     </Col>
   );
 };

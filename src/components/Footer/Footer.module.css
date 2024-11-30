@@ -1,5 +1,5 @@
 .bgFooter {
-  background: linear-gradient(to bottom, #882380, #000000);
+  background: linear-gradient(to bottom,  #2dbdb8, #08040f);
   padding: 5% 10% 1%;
   color: white;
   height: auto;
@@ -11,7 +11,7 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid #08040f;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +19,7 @@
   margin-right: 20px;
 }
 .iconContacts {
-  color: black;
+  color: #08040f;
 }
 .iconContacts:hover,
 .iconContacts:active {

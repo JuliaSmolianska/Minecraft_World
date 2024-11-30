@@ -1,7 +1,7 @@
 .reviewsTitle {
   font-size: xx-large;
   font-weight: 500;
-  color: #882380;
+  color: #2dbdb8;
   font-family: Impact, fantasy;
   text-shadow: -1px -1px 0 black, 1px -1px 3px black, -1px 1px 3px black,
     1px 1px 6px black;
@@ -12,8 +12,23 @@
   border-radius: 7px;
   padding: 0;
   margin: 10px;
-  height: 150px;
+  min-height: 150px;
   background-color: white;
+  position: relative;
+}
+
+.reviewText {
+  text-align: left;
+  line-height: normal;
+  padding: 10px 10px 40px;
+  margin-left: 10px;
+}
+
+.date {
+  position: absolute;
+  bottom: 5px;
+  left: 38%;
+  text-align: center;
 }
 
 @media screen and (min-width: 992px) {

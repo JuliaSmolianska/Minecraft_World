@@ -1,5 +1,5 @@
 .bgHeader {
-  background: linear-gradient(to bottom, #882380, #000000);
+  background: linear-gradient(to bottom, #2dbdb8, #028391);
   min-height: 100px;
   max-height: 200px;
   padding: 2% 5% 3%;
@@ -8,15 +8,15 @@
 .bgHeader h1 {
   margin-bottom: 0;
   margin-top: 0;
-  color: white;
+  color: #e8e6e6;
   font-size: xx-large;
   font-weight: bold;
-  font-family: Comic Sans MS, Comic Sans, cursive;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+  font-family: Impact, fantasy;
+  text-shadow: 3px 5px 6px rgb(0, 0, 0);
 }
 
 .wellcome {
-  animation: fadeOut 10s ease-out forwards infinite; 
+  animation: fadeOut 10s ease-out forwards infinite;
 }
 
 @keyframes fadeOut {
@@ -32,18 +32,18 @@
 }
 
 .title {
-  animation: slideIn 1.5s ease-out 0.5s forwards;
+  animation: slideIn 1s ease-out 0.5s forwards;
   opacity: 0;
 }
 
 @keyframes slideIn {
   from {
-    transform: translateX(-100%); 
-    opacity: 0; 
+    transform: translateY(-100px);
+    opacity: 0;
   }
   to {
-    transform: translateX(0); 
-    opacity: 1; 
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 

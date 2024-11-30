@@ -6,21 +6,21 @@
   background-color: rgb(252, 240, 223);
   color: white;
   margin: 20px auto;
-  background: linear-gradient(to bottom,  rgba(22, 197, 6, 0.75), #000000);
+  background: linear-gradient(to bottom, #2dbdb8, #08040f);
 }
 
 .boxVisible .col {
-  opacity: 0; 
-  transform: translateY(20px); 
-  animation: fadeInUp 0.8s ease forwards; 
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
 }
 
 .boxVisible .col:nth-child(1) {
-  animation-delay: 0.5s; 
+  animation-delay: 0.5s;
 }
 
 .boxVisible .col:nth-child(2) {
-  animation-delay: 1s; 
+  animation-delay: 1s;
 }
 
 .boxVisible .col:nth-child(3) {
@@ -28,7 +28,7 @@
 }
 
 .boxVisible .col:nth-child(4) {
-  animation-delay: 2s; 
+  animation-delay: 2s;
 }
 
 @keyframes fadeInUp {
@@ -45,7 +45,7 @@
 .textTitle {
   font-size: x-large;
   font-weight: bold;
-  color: white;
+  color:  #F5F5F5;
   line-height: normal;
 }
 
@@ -70,13 +70,13 @@
   align-items: center;
   margin: auto;
   transition: all 0.5s;
-  background-color: white;
-  border: 2px solid  rgba(22, 197, 6);;
+  background-color:  #F5F5F5;
+  border: 2px solid rgba(22, 197, 6);
 }
 
 .icon {
   font-size: 50px;
-  color:  rgba(22, 197, 6);;
+  color: rgba(22, 197, 6);
   transition: all 0.5s;
 }
 

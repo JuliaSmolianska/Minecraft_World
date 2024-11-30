@@ -1,6 +1,6 @@
 .box {
   border-radius: 10px;
-  background-image: url("../images/img_99.jpg");
+  background-image: url("../../images/img_99.jpg");
   margin: 30px auto;
   height: 500px;
   background-size: cover;
@@ -16,9 +16,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
-  
 }
 
 .infoText {
@@ -82,18 +81,18 @@
     color: white;
   }
   to {
-    color: rgba(22, 197, 6);
+    color: #2dbdb8;
   }
 }
 
 @keyframes paintShadow {
   from {
-    text-shadow: 3px 3px 16px rgba(22, 197, 6);
+    text-shadow: 3px 3px 16px #2dbdb8;
     color: white;
   }
   to {
-    text-shadow: 3px 3px 6px  rgba(0, 0, 0, 0.7);
-    color: rgba(22, 197, 6);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    color: #2dbdb8;
   }
 }
 @media screen and (min-width: 600px) {

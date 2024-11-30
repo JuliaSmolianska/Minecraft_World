@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Col, Image } from "react-bootstrap";
+import { Col, Row, Image } from "react-bootstrap";
 import css from "./MainInfo.module.css";
 
 const MainInfo = () => {
@@ -12,7 +12,7 @@ const MainInfo = () => {
         setIsVisible(entry.isIntersecting);
       },
       {
-        threshold: 0.5, 
+        threshold: 0.5,
       }
     );
 
@@ -41,11 +41,14 @@ const MainInfo = () => {
         src="../images/mainkraft.png"
         style={{ width: "50%", margin: "10px auto" }}
       />
-      <Col className={css.infoText} lg={11}>
-        Це ігровий набір, який дозволяє створювати різні 3D-моделі із блоків у
-        Minecraft-стилі, що дозволяє відтворювати сцени з гри або створювати
-        власні світи.
-      </Col>
+      <Row>
+        <Col className={css.infoText} xs={11} md={6}>
+          Це ігровий набір, який дозволяє створювати різні 3D-моделі із блоків у
+          Minecraft-стилі, що дозволяє відтворювати сцени з гри або створювати
+          власні світи.
+        </Col>
+        <Image src="../../images/minecraft_img2.png" className={css.image} />
+      </Row>
     </Col>
   );
 };
