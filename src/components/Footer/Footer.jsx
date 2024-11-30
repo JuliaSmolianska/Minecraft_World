@@ -30,7 +30,9 @@ const Footer = () => {
           </div>
         </Col>
         <Col xs={12} md={6}>
-          <b className="fs-3 text-md-start">Контакти:</b>
+          <div className="fs-3 text-center text-md-start">
+            <b>Контакти:</b>
+          </div>
           <div className="d-flex align-items-center justify-content-center justify-content-md-start">
             <FaPhoneAlt size={25} />
             <p className="ms-2 pt-2 fs-5 text-center text-md-start">
@@ -58,7 +60,7 @@ const Footer = () => {
           </div>
         </Col>
       </Row>
-      <div className="mt-3 fs-6">
+      <div className="mt-5" style={{ fontSize: "14px" }}>
         Інтернет-магазин "Minecraft_World"&copy; {dateYear}
       </div>
     </Col>

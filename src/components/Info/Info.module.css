@@ -7,6 +7,9 @@
   color: white;
   background: linear-gradient(to bottom, #2dbdb8, #08040f);
 }
+.col {
+  opacity: 0;
+}
 
 .boxVisible .col {
   opacity: 0;
