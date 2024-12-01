@@ -59,21 +59,20 @@ const ReviewForm = ({ reviewModal }) => {
         setOrderResult(
           "Дякуємо! Ваш відгук надіслано, незабаром він опублікується на сайті."
         );
-        setModalResult(true);
       } else {
         setOrderResult("Виникла помилка. Спробуйте пізніше.");
-        setModalResult(true);
       }
     } catch (error) {
       setOrderResult("Помилка з'єднання. Спробуйте пізніше.");
-      setModalResult(true);
-    }
+    } finally {
+      reviewModal(false);
+      resetForm();
 
-    reviewModal(false);
-    resetForm();
-    setTimeout(() => {
-      setModalResult(false);
-    }, 2000);
+      setModalResult(true);
+      setTimeout(() => {
+        setModalResult(false);
+      }, 4000);
+    }
   };
 
   return (

@@ -69,21 +69,20 @@ const BuyForm = ({ product, orderModal }) => {
 
       if (response.ok) {
         setOrderResult("Ваше замовлення успішно надіслано!");
-        setModalResult(true);
       } else {
         setOrderResult("Виникла помилка. Спробуйте пізніше.");
-        setModalResult(true);
       }
     } catch (error) {
       setOrderResult("Помилка з'єднання. Спробуйте пізніше.");
-      setModalResult(true);
-    }
+    } finally {
+      orderModal(false);
+      resetForm();
 
-    orderModal(false);
-    resetForm();
-    setTimeout(() => {
-      setModalResult(false);
-    }, 2000);
+      setModalResult(true);
+      setTimeout(() => {
+        setModalResult(false);
+      }, 4000);
+    }
   };
 
   return (
