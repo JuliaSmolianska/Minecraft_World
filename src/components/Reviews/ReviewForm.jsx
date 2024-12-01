@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Button } from "react-bootstrap";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "../Products/BuyForm.module.css";
 import style from "../Products/Product.module.css";
+import Modal from "../Modal/Modal";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -25,10 +26,10 @@ const validationSchema = Yup.object().shape({
 });
 
 const ReviewForm = ({ reviewModal }) => {
-  const handleSubmit = async (values, { resetForm }) => {
-    const newReview = { ...values };
-    console.log(newReview);
+  const [orderResult, setOrderResult] = useState("");
+  const [modalResult, setModalResult] = useState(false);
 
+  const handleSubmit = async (values, { resetForm }) => {
     const message = `
       🛒 Нове Відгук:!
       👤 Ім'я: ${values.name}
@@ -55,16 +56,24 @@ const ReviewForm = ({ reviewModal }) => {
       await response.json();
 
       if (response.ok) {
-        alert("Ваше відгук успішно надіслано!");
+        setOrderResult(
+          "Дякуємо! Ваш відгук надіслано, незабаром він опублікується на сайті."
+        );
+        setModalResult(true);
       } else {
-        alert("Виникла помилка. Спробуйте пізніше.");
+        setOrderResult("Виникла помилка. Спробуйте пізніше.");
+        setModalResult(true);
       }
     } catch (error) {
-      console.error("Помилка мережі:", error);
-      alert("Помилка з'єднання. Спробуйте пізніше.");
+      setOrderResult("Помилка з'єднання. Спробуйте пізніше.");
+      setModalResult(true);
     }
+
     reviewModal(false);
     resetForm();
+    setTimeout(() => {
+      setModalResult(false);
+    }, 2000);
   };
 
   return (
@@ -120,6 +129,15 @@ const ReviewForm = ({ reviewModal }) => {
             </Button>
           </Col>
         </Form>
+        {modalResult && (
+          <Modal
+            show={modalResult}
+            onClose={() => setModalResult(false)}
+            style={{ height: "auto" }}
+          >
+            <b>{orderResult}</b>
+          </Modal>
+        )}
       </Col>
     </Formik>
   );

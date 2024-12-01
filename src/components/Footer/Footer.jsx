@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import css from "./Footer.module.css";
 import { TbTruckDelivery } from "react-icons/tb";
@@ -9,9 +9,31 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaViber } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import Modal from "../Modal/Modal";
 
 const Footer = () => {
   const dateYear = new Date().getFullYear();
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
+  const email = "minecraftworld_2024@ukr.net";
+  const phone = "+38(068)-883-84-93";
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopiedEmail(true);
+    setTimeout(() => {
+      setCopiedEmail(false);
+    }, 2000);
+  };
+
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText(phone);
+    setCopiedPhone(true);
+    setTimeout(() => {
+      setCopiedPhone(false);
+    }, 2000);
+  };
+
   return (
     <Col xs={12} className={css.bgFooter}>
       <Row>
@@ -35,15 +57,24 @@ const Footer = () => {
           </div>
           <div className="d-flex align-items-center justify-content-center justify-content-md-start">
             <FaPhoneAlt size={25} />
-            <p className="ms-2 pt-2 fs-5 text-center text-md-start">
-              +38(068)-883-84-93
+            <p
+              className={`${css.copied} "pt-2 fs-5 text-center text-md-start"`}
+              style={{ cursor: "pointer" }}
+              onClick={handleCopyPhone}
+            >
+              {phone}
             </p>
           </div>
           <div className="d-flex align-items-center mb-3 justify-content-center justify-content-md-start">
             <div>
               <MdOutlineMail size={30} />
             </div>
-            <p className={css.text}>minecraftworld_2024@ukr.net</p>
+            <p
+              className={`${css.text} ${css.copied}`}
+              onClick={handleCopyEmail}
+            >
+              {email}
+            </p>
           </div>
           <div className="mt-4">
             <div className="d-flex justify-content-center justify-content-md-start">
@@ -63,6 +94,24 @@ const Footer = () => {
       <div className="mt-5" style={{ fontSize: "14px" }}>
         Інтернет-магазин "Minecraft_World"&copy; {dateYear}
       </div>
+      {copiedEmail && (
+        <Modal
+          show={copiedEmail}
+          onClose={() => setCopiedEmail(false)}
+          style={{ height: "auto" }}
+        >
+          <b>Електронну адресу скопійовано!</b>
+        </Modal>
+      )}
+      {copiedPhone && (
+        <Modal
+          show={copiedPhone}
+          onClose={() => setCopiedPhone(false)}
+          style={{ height: "auto" }}
+        >
+          <b>Номер телефону скопійовано!</b>
+        </Modal>
+      )}
     </Col>
   );
 };

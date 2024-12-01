@@ -62,9 +62,25 @@ const Products = () => {
 
               <Card.Body className="pt-0">
                 <Col className={css.price}>
-                  <IoIosPricetags className={css.iconPrice} />
-                  <span>{item.price} грн.</span>
+                  <IoIosPricetags
+                    className={
+                      item.salePrice ? css.iconPriceSale : css.iconPrice
+                    }
+                  />
+                  {item.salePrice ? (
+                    <div className="d-block">
+                      <p className={css.priceSale}>{item.salePrice} грн.</p>
+                    </div>
+                  ) : (
+                    <span>{item.price} грн.</span>
+                  )}
                 </Col>
+                {item.salePrice && (
+                  <p className={css.priceBeforeSale}>{item.price} грн.</p>
+                )}
+                 {item.salePrice && (
+                  <div className={css.sale}>sale</div>
+                )}
                 <Card.Text>
                   В наборі {item.quantityBlock} + {item.quantityHero}
                 </Card.Text>
