@@ -14,6 +14,7 @@ const Products = () => {
   const [product, setProduct] = useState([]);
   const [carouselModal, setCarouselModal] = useState(false);
   const [activeImages, setActiveImages] = useState([]);
+  const [orderResult, setOrderResult] = useState("");
 
   const openCarouselModal = (images) => {
     setActiveImages(images);
@@ -21,7 +22,6 @@ const Products = () => {
   };
 
   const makeOrder = (item) => {
-    console.log(item);
     setOrderModal(true);
     setProduct(item);
   };
@@ -78,9 +78,7 @@ const Products = () => {
                 {item.salePrice && (
                   <p className={css.priceBeforeSale}>{item.price} грн.</p>
                 )}
-                 {item.salePrice && (
-                  <div className={css.sale}>sale</div>
-                )}
+                {item.salePrice && <div className={css.sale}>sale</div>}
                 <Card.Text>
                   В наборі {item.quantityBlock} + {item.quantityHero}
                 </Card.Text>
@@ -103,7 +101,15 @@ const Products = () => {
           onClose={() => setOrderModal(false)}
           style={{ height: "auto" }}
         >
-          <BuyForm product={product} orderModal={setOrderModal} />
+          {orderResult.length !== 0 ? (
+            <b className="py-5 px-2 fs-4">{orderResult}</b>
+          ) : (
+            <BuyForm
+              product={product}
+              orderModal={setOrderModal}
+              setOrderResult={setOrderResult}
+            />
+          )}
         </Modal>
       )}
 

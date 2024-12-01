@@ -4,12 +4,13 @@ import { reviews } from "../../data/reviews";
 import css from "./Reviews.module.css";
 import { PiShoppingBagOpen } from "react-icons/pi";
 import Modal from "../Modal/Modal";
-import ReviewForm from "./ReviewForm"
+import ReviewForm from "./ReviewForm";
 
 const Reviews = () => {
   const [reviewModal, setReviewModal] = useState(false);
   const [currentGroup, setCurrentGroup] = useState(0);
   const [animationClass, setAnimationClass] = useState("");
+  const [reviewResult, setReviewResult] = useState("");
   const reviewsPerPage = 3;
 
   const reversedReviews = [...reviews].reverse();
@@ -81,7 +82,14 @@ const Reviews = () => {
           onClose={() => setReviewModal(false)}
           style={{ height: "auto" }}
         >
-          <ReviewForm reviewModal={setReviewModal} />
+          {reviewResult.length !== 0 ? (
+            <b className="py-5 px-2 fs-4">{reviewResult}</b>
+          ) : (
+            <ReviewForm
+              reviewModal={setReviewModal}
+              setReviewResult={setReviewResult}
+            />
+          )}
         </Modal>
       )}
     </Col>

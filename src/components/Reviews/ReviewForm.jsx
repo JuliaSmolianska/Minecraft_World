@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Col, Button } from "react-bootstrap";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "../Products/BuyForm.module.css";
 import style from "../Products/Product.module.css";
-import Modal from "../Modal/Modal";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -25,13 +24,10 @@ const validationSchema = Yup.object().shape({
     .required("Залиште Ваш відгук"),
 });
 
-const ReviewForm = ({ reviewModal }) => {
-  const [orderResult, setOrderResult] = useState("");
-  const [modalResult, setModalResult] = useState(false);
-
+const ReviewForm = ({ reviewModal, setReviewResult }) => {
   const handleSubmit = async (values, { resetForm }) => {
     const message = `
-      🛒 Нове Відгук:!
+      🛒 Новий відгук:!
       👤 Ім'я: ${values.name}
       📞 Телефон: ${values.phone}
       💬 Відгук: ${values.review || "Немає"}
@@ -56,22 +52,24 @@ const ReviewForm = ({ reviewModal }) => {
       await response.json();
 
       if (response.ok) {
-        setOrderResult(
+        setReviewResult(
           "Дякуємо! Ваш відгук надіслано, незабаром він опублікується на сайті."
         );
       } else {
-        setOrderResult("Виникла помилка. Спробуйте пізніше.");
+        setReviewResult("Виникла помилка. Спробуйте пізніше.");
       }
     } catch (error) {
-      setOrderResult("Помилка з'єднання. Спробуйте пізніше.");
+      setReviewResult("Помилка з'єднання. Спробуйте пізніше.");
     } finally {
-      reviewModal(false);
+      setTimeout(() => {
+        reviewModal(false);
+      }, 5000);
+
       resetForm();
 
-      setModalResult(true);
       setTimeout(() => {
-        setModalResult(false);
-      }, 4000);
+        setReviewResult("");
+      }, 6000);
     }
   };
 
@@ -128,15 +126,6 @@ const ReviewForm = ({ reviewModal }) => {
             </Button>
           </Col>
         </Form>
-        {modalResult && (
-          <Modal
-            show={modalResult}
-            onClose={() => setModalResult(false)}
-            style={{ height: "auto" }}
-          >
-            <b>{orderResult}</b>
-          </Modal>
-        )}
       </Col>
     </Formik>
   );

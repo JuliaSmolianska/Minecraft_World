@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Col, Button } from "react-bootstrap";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "./BuyForm.module.css";
 import style from "./Product.module.css";
-import Modal from "../Modal/Modal";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -30,10 +29,7 @@ const validationSchema = Yup.object().shape({
   ),
 });
 
-const BuyForm = ({ product, orderModal }) => {
-  const [orderResult, setOrderResult] = useState("");
-  const [modalResult, setModalResult] = useState(false);
-
+const BuyForm = ({ product, orderModal, setOrderResult }) => {
   const handleSubmit = async (values, { resetForm }) => {
     const { title, price } = product;
     const newOrder = { ...values, title, price };
@@ -68,20 +64,24 @@ const BuyForm = ({ product, orderModal }) => {
       await response.json();
 
       if (response.ok) {
-        setOrderResult("Ваше замовлення успішно надіслано!");
+        setOrderResult(
+          "Ваше замовлення успішно зформовано! Наш менеджер зв'яжеться з вами найближчім часом"
+        );
       } else {
         setOrderResult("Виникла помилка. Спробуйте пізніше.");
       }
     } catch (error) {
       setOrderResult("Помилка з'єднання. Спробуйте пізніше.");
     } finally {
-      orderModal(false);
+      setTimeout(() => {
+        orderModal(false);
+      }, 5000);
+
       resetForm();
 
-      setModalResult(true);
       setTimeout(() => {
-        setModalResult(false);
-      }, 4000);
+        setOrderResult("");
+      }, 6000);
     }
   };
 
@@ -147,15 +147,6 @@ const BuyForm = ({ product, orderModal }) => {
             </Button>
           </Col>
         </Form>
-        {modalResult && (
-          <Modal
-            show={modalResult}
-            onClose={() => setModalResult(false)}
-            style={{ height: "auto" }}
-          >
-            <b>{orderResult}</b>
-          </Modal>
-        )}
       </Col>
     </Formik>
   );
