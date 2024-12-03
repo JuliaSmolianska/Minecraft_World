@@ -38,10 +38,20 @@
   cursor: pointer;
   margin-left: 10px;
   transition: all 0.5s;
+  background-color: transparent;
+  border: none;
+  color: white;
 }
 
 .copied:hover {
   text-decoration: underline;
+}
+
+.copiedSuccess {
+  height: 30px;
+
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (min-width: 768px) {

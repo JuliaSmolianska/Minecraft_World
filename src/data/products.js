@@ -6,7 +6,7 @@ export const products = [
     title: "Портал до раю",
     quantityBlock: "38 блоків",
     quantityHero: "1 Герой",
-    images: ["../images/img_21.png", "../images/img_11.png", "../images/img_31.png"]
+    images: ["../images/портал2_1.png", "../images/портал2_2.png"]
   },
   {
     id: 2,
@@ -15,16 +15,16 @@ export const products = [
     title: "Портал в нижній світ",
     quantityBlock: "38 блоків",
     quantityHero: "1 Герой",
-    images: ["../images/img_21.png", "../images/img_11.png", "../images/img_31.png"]
+    images: ["../images/портал1_1.png", "../images/портал1_2.png"]
   },
   {
     id: 3,
     salePrice: false,
-    price: 800,
+    price: 900,
     title: "Алмазний меч",
     quantityBlock: "42 блоки",
     quantityHero: "1 Герой",
-    images: ["../images/img_21.png", "../images/img_11.png", "../images/img_31.png"]
+    images: ["../images/Ал.меч_1.png", "../images/Ал.меч_2.png"]
   },
   {
     id: 4,
@@ -33,6 +33,14 @@ export const products = [
     title: "Санчата Грінча",
     quantityBlock: "49 блоків",
     quantityHero: "1 Герой (Грінч)",
-    images: ["../images/img_21.png", "../images/img_11.png", "../images/img_31.png"]
+    images: ["../images/Грінч_1.png", "../images/Грінч_2.png"]
   },
+  {
+    id: 4,
+    salePrice: 25,
+    price: 20,
+    title: "Блоки",
+    quantityBlock: "1 блок на вибір",
+    images: ["../images/Блоки_1.png", "../images/Блоки_2.png"]
+  }
 ]

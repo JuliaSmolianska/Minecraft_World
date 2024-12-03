@@ -8,7 +8,7 @@ import { MdOutlineMail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaViber } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
+//import { FaInstagram } from "react-icons/fa";
 import Modal from "../Modal/Modal";
 
 const Footer = () => {
@@ -52,29 +52,29 @@ const Footer = () => {
           </div>
         </Col>
         <Col xs={12} md={6}>
-          <div className="fs-3 text-center text-md-start">
+          <div className="fs-3 text-center text-md-start mb-2">
             <b>Контакти:</b>
           </div>
           <div className="d-flex align-items-center justify-content-center justify-content-md-start">
             <FaPhoneAlt size={25} />
-            <p
-              className={`${css.copied} "pt-2 fs-5 text-center text-md-start"`}
+            <button type="button"
+              className={`${css.copied} ${css.text} "fs-5 text-center text-md-start"`}
               style={{ cursor: "pointer" }}
               onClick={handleCopyPhone}
             >
               {phone}
-            </p>
+            </button>
           </div>
-          <div className="d-flex align-items-center mb-3 justify-content-center justify-content-md-start">
+          <div className="d-flex align-items-center mt-3 mb-3 justify-content-center justify-content-md-start">
             <div>
               <MdOutlineMail size={30} />
             </div>
-            <p
+            <button type="button"
               className={`${css.text} ${css.copied}`}
               onClick={handleCopyEmail}
             >
               {email}
-            </p>
+            </button>
           </div>
           <div className="mt-4">
             <div className="d-flex justify-content-center justify-content-md-start">
@@ -83,9 +83,6 @@ const Footer = () => {
               </div>
               <div className={css.iconContactsBox}>
                 <FaTelegramPlane size={40} className={css.iconContacts} />
-              </div>
-              <div className={css.iconContactsBox}>
-                <FaInstagram size={40} className={css.iconContacts} />
               </div>
             </div>
           </div>
@@ -100,7 +97,7 @@ const Footer = () => {
           onClose={() => setCopiedEmail(false)}
           style={{ height: "auto" }}
         >
-          <b>Електронну адресу скопійовано!</b>
+          <b className={css.copiedSuccess}>Електронну адресу скопійовано!</b>
         </Modal>
       )}
       {copiedPhone && (

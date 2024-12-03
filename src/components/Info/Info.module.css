@@ -59,8 +59,9 @@
 }
 
 .text2 {
-  font-size: larger;
+  font-size: large;
   font-weight: 700;
+  line-height: normal;
 }
 
 .iconBox {

@@ -16,6 +16,12 @@ const Products = () => {
   const [activeImages, setActiveImages] = useState([]);
   const [orderResult, setOrderResult] = useState("");
 
+  const sortedProducts = [...products].sort((a, b) => {
+    if (a.salePrice && !b.salePrice) return -1; // Якщо a має salePrice, а b — ні, a йде першим
+    if (!a.salePrice && b.salePrice) return 1; // Якщо b має salePrice, а a — ні, b йде першим
+    return 0; // Інакше порядок залишається незмінним
+  });
+
   const openCarouselModal = (images) => {
     setActiveImages(images);
     setCarouselModal(true);
@@ -28,8 +34,9 @@ const Products = () => {
 
   return (
     <Col>
+    <h2 className={css.header}>Асортимент:</h2>
       <Row className="d-flex justify-content-center">
-        {products.map((item) => (
+        {sortedProducts.map((item) => (
           <Col
             key={item.id}
             xs={10}
@@ -72,7 +79,7 @@ const Products = () => {
                       <p className={css.priceSale}>{item.salePrice} грн.</p>
                     </div>
                   ) : (
-                    <span>{item.price} грн.</span>
+                    <p mb-2>{item.price} грн.</p>
                   )}
                 </Col>
                 {item.salePrice && (
@@ -80,7 +87,9 @@ const Products = () => {
                 )}
                 {item.salePrice && <div className={css.sale}>sale</div>}
                 <Card.Text>
-                  В наборі {item.quantityBlock} + {item.quantityHero}
+                  {item.quantityHero ? <span>В наборі </span> : ""}
+                  {item.quantityBlock}{" "}
+                  {item.quantityHero ? <span>+ {item.quantityHero}</span> : ""}
                 </Card.Text>
                 <Col className="d-flex justify-content-evenly">
                   <Button
@@ -117,9 +126,9 @@ const Products = () => {
         <Modal
           show={carouselModal}
           onClose={() => setCarouselModal(false)}
-          style={{ height: "90%" }}
+          style={{ width: "90%", maxWidth:"500px" }}
         >
-          <Carousel controls={false}>
+          <Carousel controls={false} interval={null} indicators={null}>
             {activeImages.map((image, index) => (
               <Carousel.Item key={index}>
                 <Image
@@ -128,9 +137,8 @@ const Products = () => {
                   style={{
                     width: "100%",
                     objectFit: "cover",
-                    margin: "10px auto 36px",
+                    margin: "auto",
                     height: "auto",
-                    transform: "scale(1.1)",
                   }}
                 />
               </Carousel.Item>
